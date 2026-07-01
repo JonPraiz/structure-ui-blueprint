@@ -1,0 +1,51 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Link } from "react-router-dom";
+
+export default function SignupPage() {
+  return (
+    <div className="flex items-center justify-center min-h-screen bg-muted/40 p-4">
+      <Card className="w-full max-w-sm shadow-xl border-primary/5">
+        <CardHeader className="text-center">
+            <div className="flex justify-center mb-4">
+                <div className="h-12 w-12 bg-primary rounded-xl flex items-center justify-center">
+                    <span className="text-primary-foreground font-bold text-2xl">S</span>
+                </div>
+            </div>
+          <CardTitle className="text-2xl font-bold">Create an Account</CardTitle>
+          <CardDescription>Enter your information to create an account</CardDescription>
+        </CardHeader>
+        <CardContent className="grid gap-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div className="grid gap-2">
+              <Label htmlFor="first-name">First name</Label>
+              <Input id="first-name" placeholder="Max" required />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="last-name">Last name</Label>
+              <Input id="last-name" placeholder="Robinson" required />
+            </div>
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="email">Email</Label>
+            <Input id="email" type="email" placeholder="m@example.com" required />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="password">Password</Label>
+            <Input id="password" type="password" />
+          </div>
+          <Button type="submit" className="w-full bg-primary">Create an account</Button>
+          <Button variant="outline" className="w-full">Sign up with Google</Button>
+        </CardContent>
+        <CardFooter className="text-center text-sm flex justify-center">
+            Already have an account?{" "}
+            <Link to="/login" className="underline font-bold text-primary ml-1">
+                Login
+            </Link>
+        </CardFooter>
+      </Card>
+    </div>
+  );
+}
